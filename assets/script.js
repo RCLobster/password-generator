@@ -15,22 +15,16 @@ var upperCaseAlphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'
 var allNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var allSpecialCharacters = ["!","#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 var charactersToUse = [];
+var generatedPassword = "";
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
-
-}
-
-function generatePassword() {
+function generatePassword(generatedPassword) {
   charactersToUse.length = 0;
+  generatePassword = "";
   //Create a variable to store user input about password length
   var length = prompt("How long should your password be? Select a number between 8 and 128.");
   length = Number(length);
@@ -81,8 +75,24 @@ function generatePassword() {
   }
 
   //Actually generate a password of the desired length containing all selected characters
-  var randomIndex = Math.floor(Math.random()*charactersToUse.length);
 
+  for(x=0; x<length; x++) {
+    var randomIndex = Math.floor(Math.random()*charactersToUse.length);
+    generatedPassword = generatedPassword + charactersToUse[randomIndex];
+  }
+  console.log("Your new password is: " + generatedPassword);
+  return generatedPassword;
+
+}
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword(generatedPassword);
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+  console.log(password);
+  
 
 }
 
