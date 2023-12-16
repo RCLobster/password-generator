@@ -10,7 +10,11 @@
 */
 
 // Assignment code here
-
+var lowerCaseAlphabet = ["abcdefghijklmnopqrstuvwxyz"];
+var upperCaseAlphabet = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+var allNumbers = ["0123456789"];
+var allSpecialCharacters = ["`~!@#$%^&*()-_=+[{]}\|;:',<.>/?"];
+var charactersToUse = [];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -50,21 +54,31 @@ function generatePassword() {
   
   if (hasLowercase){
     chosenCriteria++;
+    charactersToUse = charactersToUse.concat(lowerCaseAlphabet);
   }
   if (hasUppercase) {
     chosenCriteria++;
+    charactersToUse = charactersToUse.concat(upperCaseAlphabet);
   }
   if (hasNumbers) {
     chosenCriteria++;
+    charactersToUse = charactersToUse.concat(allNumbers);
   }
   if (hasSpecials) {
     chosenCriteria++;
+    charactersToUse = charactersToUse.concat(allSpecialCharacters);
   }
   console.log("Num of criteria chosen: " + chosenCriteria);
+  console.log(charactersToUse);
+
   if (chosenCriteria < 1) {
     alert("Sorry, you must choose at least one criteria. Please try again")
+    charactersToUse.length = 0;
     return;
   }
+
+  //Take all chosen criteria arrays and add them to the chosen characters array
+
 }
 
 // Add event listener to generate button
