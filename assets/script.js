@@ -15,6 +15,7 @@ var upperCaseAlphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'
 var allNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var allSpecialCharacters = ["!","#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 var charactersToUse = [];
+var tempPassword = "";
 var generatedPassword = "";
 
 
@@ -27,7 +28,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  console.log(password);
+  //console.log(password);
   
 }
 
@@ -42,17 +43,17 @@ function generatePassword(generatedPassword) {
     alert("Sorry that number is not between 8 and 128. Please try again.");
     return;
   }
-  console.log("Password length: " + length);
+  //console.log("Password length: " + length);
 
   //Create variables to store user input about types of characters to include
   var hasLowercase = window.confirm("Would you like the password to contain lowercase letters?");
-  console.log("Lowercase: " + hasLowercase)
+  //console.log("Lowercase: " + hasLowercase)
   var hasUppercase = window.confirm("Would you like the password to contain uppercase letters?");
-  console.log("Uppercase: " + hasUppercase);
+  //console.log("Uppercase: " + hasUppercase);
   var hasNumbers = window.confirm("Would you like the password to contain numbers?");
-  console.log("Numbers: " + hasNumbers);
+  //console.log("Numbers: " + hasNumbers);
   var hasSpecials = window.confirm("Would you like the password to contain special characters?");
-  console.log("Special characters: " + hasSpecials);
+  //console.log("Special characters: " + hasSpecials);
   
   //If statements check if at least 1 criteria was chosen, if not restart
   //Take all chosen criteria arrays and add them to the chosen characters array
@@ -74,8 +75,8 @@ function generatePassword(generatedPassword) {
     chosenCriteria++;
     charactersToUse = charactersToUse.concat(allSpecialCharacters);
   }
-  console.log("Num of criteria chosen: " + chosenCriteria);
-  console.log(charactersToUse);
+  //console.log("Num of criteria chosen: " + chosenCriteria);
+  //console.log(charactersToUse);
 
   if (chosenCriteria < 1) {
     alert("Sorry, you must choose at least one criteria. Please try again")
@@ -90,9 +91,33 @@ function generatePassword(generatedPassword) {
     generatedPassword = generatedPassword + charactersToUse[randomIndex];
   }
   console.log("Your new password is: " + generatedPassword);
+
+  
+  // Check that at least one element from each array of characters is present in generatedPassword
+  // for(x=0; x<length; x++) {
+  //   var randomIndex = Math.floor(Math.random()*charactersToUse.length);
+  //   tempPassword.push(charactersToUse[randomIndex]);
+  // }
+
+  // //check if all criteria character are present in generatedPassword
+  // console.log(tempPassword);
+
+  // result = checkPasswordForElements(generatedPassword, lowerCaseAlphabet, upperCaseAlphabet, allNumbers, allSpecialCharacters)
+  // console.log(result);
+
   return generatedPassword;
 
 }
+
+// function checkPasswordForElements(generatedPassword, lowerCaseAlphabet, upperCaseAlphabet, allNumbers, allSpecialCharacters) {
+//   return (
+//     lowerCaseAlphabet.some(element >= generatedPassword.includes(element)) ||
+//     upperCaseAlphabet.some(element >= generatedPassword.includes(element)) ||
+//     allNumbers.some(element >= generatedPassword.includes(element)) ||
+//     allSpecialCharacters.some(element >= generatedPassword.includes(element))
+//   );
+// }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
