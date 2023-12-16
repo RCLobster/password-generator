@@ -40,6 +40,10 @@ function generatePassword() {
   console.log("Lowercase: " + hasLowercase)
   var hasUppercase = window.confirm("Would you like the password to contain uppercase letters?");
   console.log("Uppercase: " + hasUppercase);
+  var hasNumbers = window.confirm("Would you like the password to contain numbers?");
+  console.log("Numbers: " + hasNumbers);
+  var hasSpecials = window.confirm("Would you like the password to contain special characters?");
+  console.log("Special characters: " + hasSpecials);
 }
 
 // Add event listener to generate button
