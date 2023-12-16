@@ -1,5 +1,5 @@
 /* The Plan
-1. Click generate password button to initiate prompts to user about password criteria
+1.X Click generate password button to initiate prompts to user about password criteria
 2. Allow user to select which criteria are included in the password using alert()
 3. Prompt user to choose password length btwn 8-128
 4. Prompt user to choose which characters to include lowercase, uppercase, numeric, special characters 
@@ -21,6 +21,11 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+}
+
+function generatePassword() {
+  alert("Let's make you a password. Choose which of the following criteria this password should meet:");
 
 }
 
