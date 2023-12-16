@@ -1,10 +1,10 @@
 /* The Plan
 1.X Click generate password button to initiate prompts to user about password criteria
-2. Allow user to select which criteria are included in the password using alert()
-3. Prompt user to choose password length btwn 8-128
-4. Prompt user to choose which characters to include lowercase, uppercase, numeric, special characters 
+2.X Allow user to select which criteria are included in the password using alert()
+3.X Prompt user to choose password length btwn 8-128
+4.X Prompt user to choose which characters to include lowercase, uppercase, numeric, special characters 
    (can be any combination of charcters)
-5. All inputs should be validated and a minimum of one criteria should be selected, if none are selected restart
+5.X All inputs should be validated and a minimum of one criteria should be selected, if none are selected restart
 6. When all prompts are complete and at least one is chosen, generate a password which matches the criteria
 7. Display password on website
 */
@@ -25,6 +25,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
 
 }
 
@@ -51,6 +52,7 @@ function generatePassword() {
   console.log("Special characters: " + hasSpecials);
   
   //If statements check if at least 1 criteria was chosen, if not restart
+  //Take all chosen criteria arrays and add them to the chosen characters array
   var chosenCriteria = 0;
   
   if (hasLowercase){
@@ -78,7 +80,9 @@ function generatePassword() {
     return;
   }
 
-  //Take all chosen criteria arrays and add them to the chosen characters array
+  //Actually generate a password of the desired length containing all selected characters
+  var randomIndex = Math.floor(Math.random()*charactersToUse.length);
+
 
 }
 
