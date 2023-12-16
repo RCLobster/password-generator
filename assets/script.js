@@ -26,7 +26,9 @@ function writePassword() {
 
 function generatePassword() {
   alert("Let's make you a password. Choose which of the following criteria this password should meet:");
-
+  var length = prompt("How long should your password be? Select a number between 8 and 128.");
+  length = Number(length);
+  
 }
 
 // Add event listener to generate button
