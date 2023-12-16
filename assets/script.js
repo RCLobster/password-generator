@@ -5,8 +5,8 @@
 4.X Prompt user to choose which characters to include lowercase, uppercase, numeric, special characters 
    (can be any combination of charcters)
 5.X All inputs should be validated and a minimum of one criteria should be selected, if none are selected restart
-6. When all prompts are complete and at least one is chosen, generate a password which matches the criteria
-7. Display password on website
+6.X When all prompts are complete and at least one is chosen, generate a password which matches the criteria
+7.X Display password on website
 */
 
 // Assignment code here
@@ -21,10 +21,19 @@ var generatedPassword = "";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword(generatedPassword);
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+  console.log(password);
+  
+}
 
 function generatePassword(generatedPassword) {
   charactersToUse.length = 0;
-  generatePassword = "";
+  generatedPassword = "";
   //Create a variable to store user input about password length
   var length = prompt("How long should your password be? Select a number between 8 and 128.");
   length = Number(length);
@@ -82,17 +91,6 @@ function generatePassword(generatedPassword) {
   }
   console.log("Your new password is: " + generatedPassword);
   return generatedPassword;
-
-}
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword(generatedPassword);
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-  console.log(password);
-  
 
 }
 
