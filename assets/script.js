@@ -44,6 +44,27 @@ function generatePassword() {
   console.log("Numbers: " + hasNumbers);
   var hasSpecials = window.confirm("Would you like the password to contain special characters?");
   console.log("Special characters: " + hasSpecials);
+  
+  //If statements check if at least 1 criteria was chosen, if not restart
+  var chosenCriteria = 0;
+  
+  if (hasLowercase){
+    chosenCriteria++;
+  }
+  if (hasUppercase) {
+    chosenCriteria++;
+  }
+  if (hasNumbers) {
+    chosenCriteria++;
+  }
+  if (hasSpecials) {
+    chosenCriteria++;
+  }
+  console.log("Num of criteria chosen: " + chosenCriteria);
+  if (chosenCriteria < 1) {
+    alert("Sorry, you must choose at least one criteria. Please try again")
+    return;
+  }
 }
 
 // Add event listener to generate button
