@@ -10,10 +10,10 @@
 */
 
 // Assignment code here
-var lowerCaseAlphabet = ["abcdefghijklmnopqrstuvwxyz"];
-var upperCaseAlphabet = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-var allNumbers = ["0123456789"];
-var allSpecialCharacters = ["`~!@#$%^&*()-_=+[{]}\|;:',<.>/?"];
+var lowerCaseAlphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var upperCaseAlphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var allNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var allSpecialCharacters = ["!","#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 var charactersToUse = [];
 
 // Get references to the #generate element
@@ -29,6 +29,7 @@ function writePassword() {
 }
 
 function generatePassword() {
+  charactersToUse.length = 0;
   //Create a variable to store user input about password length
   var length = prompt("How long should your password be? Select a number between 8 and 128.");
   length = Number(length);
