@@ -23,6 +23,7 @@ var hasLowercase = null;
 var hasUppercase = null;
 var hasNumbers = null;
 var hasSpecials = null;
+var generatedCorrectly = null;
 
 
 // Get references to the #generate element
@@ -98,41 +99,42 @@ function generatePassword(generatedPassword) {
   }
   console.log("Your new password is: " + generatedPassword);
 
-  
-  // Check that at least one element from each array of characters is present in generatedPassword
-  // for(x=0; x<length; x++) {
-  //   var randomIndex = Math.floor(Math.random()*charactersToUse.length);
-  //   tempPassword.push(charactersToUse[randomIndex]);
-  // }
-
-  // //check if all criteria character are present in generatedPassword
-  // console.log(tempPassword);
-
-  // result = checkPasswordForElements(generatedPassword, lowerCaseAlphabet, upperCaseAlphabet, allNumbers, allSpecialCharacters)
-  // console.log(result);
-
-  //checkPasswordCharacters(generatedPassword)
+  checkPasswordCharacters(generatedPassword)
 
   return generatedPassword;
 
 }
 
-// function checkPasswordForElements(generatedPassword, lowerCaseAlphabet, upperCaseAlphabet, allNumbers, allSpecialCharacters) {
-//   return (
-//     lowerCaseAlphabet.some(element >= generatedPassword.includes(element)) ||
-//     upperCaseAlphabet.some(element >= generatedPassword.includes(element)) ||
-//     allNumbers.some(element >= generatedPassword.includes(element)) ||
-//     allSpecialCharacters.some(element >= generatedPassword.includes(element))
-//   );
-// }
+/*GOAL: check the generated password for at least one character of each type to be included
+1. loop through the generatedPassword and determine if any elements are present in the lowerCaseAlphabet array
+2. If true, continue : if false, regenerate password
+*/
 
 function checkPasswordCharacters (generatedPassword) {
-  for(var x = 0; x < generatedPassword.length; x++) {
-    if(hasLowercase) {
+  // for(var x = 0; x < lowerCaseAlphabet.length; x++) {
+  //   if(hasLowercase) {
+  //     var checkLower = generatedPassword.includes(lowerCaseAlphabet[x]);
+  //     checkLower == true;
+  //     console.log(checkLower);
+  //   } else {
+  //     console.log("Your password does not contain lower case letter");
+  //   }
+  // }
+
+  if(hasLowercase) {
+    for(var x = 0; x < lowerCaseAlphabet.length; x++) {
       var checkLower = generatedPassword.includes(lowerCaseAlphabet[x]);
-      console.log(checkLower);
-    }
-  }
+      if(checkLower){
+        console.log("Your password DOES CONTAIN at least one lower case letter");
+        return;
+      } else {
+        //regenerate password
+        console.log("no lowercase letters found");
+        return;
+      }
+    } 
+
+  } 
 
   return generatedPassword;
 }
