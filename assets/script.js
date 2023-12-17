@@ -18,6 +18,12 @@ var charactersToUse = [];
 var tempPassword = "";
 var generatedPassword = "";
 
+//Booleans
+var hasLowercase = null;
+var hasUppercase = null;
+var hasNumbers = null;
+var hasSpecials = null;
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -46,13 +52,13 @@ function generatePassword(generatedPassword) {
   //console.log("Password length: " + length);
 
   //Create variables to store user input about types of characters to include
-  var hasLowercase = window.confirm("Would you like the password to contain lowercase letters?");
+  hasLowercase = window.confirm("Would you like the password to contain lowercase letters?");
   //console.log("Lowercase: " + hasLowercase)
-  var hasUppercase = window.confirm("Would you like the password to contain uppercase letters?");
+  hasUppercase = window.confirm("Would you like the password to contain uppercase letters?");
   //console.log("Uppercase: " + hasUppercase);
-  var hasNumbers = window.confirm("Would you like the password to contain numbers?");
+  hasNumbers = window.confirm("Would you like the password to contain numbers?");
   //console.log("Numbers: " + hasNumbers);
-  var hasSpecials = window.confirm("Would you like the password to contain special characters?");
+  hasSpecials = window.confirm("Would you like the password to contain special characters?");
   //console.log("Special characters: " + hasSpecials);
   
   //If statements check if at least 1 criteria was chosen, if not restart
@@ -105,6 +111,8 @@ function generatePassword(generatedPassword) {
   // result = checkPasswordForElements(generatedPassword, lowerCaseAlphabet, upperCaseAlphabet, allNumbers, allSpecialCharacters)
   // console.log(result);
 
+  //checkPasswordCharacters(generatedPassword)
+
   return generatedPassword;
 
 }
@@ -117,6 +125,19 @@ function generatePassword(generatedPassword) {
 //     allSpecialCharacters.some(element >= generatedPassword.includes(element))
 //   );
 // }
+
+function checkPasswordCharacters (generatedPassword) {
+  for(var x = 0; x < generatedPassword.length; x++) {
+    if(hasLowercase) {
+      var checkLower = generatedPassword.includes(lowerCaseAlphabet[x]);
+      console.log(checkLower);
+    }
+  }
+
+  return generatedPassword;
+}
+
+
 
 
 // Add event listener to generate button
