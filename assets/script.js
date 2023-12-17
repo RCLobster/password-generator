@@ -96,12 +96,15 @@ function generatePassword(generatedPassword) {
   for(x=0; x<length; x++) {
     var randomIndex = Math.floor(Math.random()*charactersToUse.length);
     generatedPassword = generatedPassword + charactersToUse[randomIndex];
+    //tempPassword = tempPassword + charactersToUse[randomIndex];
   }
   console.log("Your new password is: " + generatedPassword);
+  //console.log("Your new temp password is: " + tempPassword);
 
-  checkPasswordCharacters(generatedPassword)
+  // checkPasswordCharacters(tempPassword)
+  // generatedPassword = tempPassword;
 
-  return generatedPassword;
+ return generatedPassword;
 
 }
 
@@ -110,34 +113,38 @@ function generatePassword(generatedPassword) {
 2. If true, continue : if false, regenerate password
 */
 
-function checkPasswordCharacters (generatedPassword) {
-  // for(var x = 0; x < lowerCaseAlphabet.length; x++) {
-  //   if(hasLowercase) {
-  //     var checkLower = generatedPassword.includes(lowerCaseAlphabet[x]);
-  //     checkLower == true;
-  //     console.log(checkLower);
-  //   } else {
-  //     console.log("Your password does not contain lower case letter");
-  //   }
-  // }
 
-  if(hasLowercase) {
-    for(var x = 0; x < lowerCaseAlphabet.length; x++) {
-      var checkLower = generatedPassword.includes(lowerCaseAlphabet[x]);
-      if(checkLower){
-        console.log("Your password DOES CONTAIN at least one lower case letter");
-        return;
-      } else {
-        //regenerate password
-        console.log("no lowercase letters found");
-        return;
-      }
-    } 
+// function checkPasswordCharacters (tempPassword) {
+//   if(hasLowercase) {
+//     for(var x = 0; x < lowerCaseAlphabet.length; x++) {
+//       var checkLower = tempPassword.includes(lowerCaseAlphabet[x]);
+//       if(checkLower){
+//         console.log("Your password DOES CONTAIN at least one lower case letter");
+//         //return;
+//       } else {
+//         //regenerate password
+//         console.log("no lowercase letters found");
+//         return;
+//       }
+//     } 
+//   }
 
-  } 
+//   if(hasUppercase) {
+//     for(var x = 0; x < upperCaseAlphabet.length; x++) {
+//       var checkUpper = tempPassword.includes(upperCaseAlphabet[x]);
+//       if(checkUpper){
+//         console.log("Your password DOES CONTAIN at least one upper case letter");
+//         //return;
+//       } else {
+//         //regenerate password
+//         console.log("no upper case letters found");
+//         return;
+//       }
+//     } 
+//   }
 
-  return generatedPassword;
-}
+//   return tempPassword;
+// }
 
 
 
